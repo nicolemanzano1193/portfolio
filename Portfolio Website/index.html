@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/b28ba74203.js" crossorigin="anonymous"></script>
+    <script>
+        function toggleNav() {
+            var nav = document.getElementById("nav");
+            nav.classList.toggle("responsive");
+        }
+
+        function submitForm() {
+            var form = document.getElementById("contactForm");
+            var formData = new FormData(form);
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function (){
+                if (xhr.readyState == 4 && xhr.status == 200){
+                    document.getElementById("formResponse").innerHTML = xhr.responseText;
+                }
+            };
+
+            xhr.open("POST", "process_form.php", true);
+            xhr.send(formData);
+        }
+    </script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="image/logo.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>2nd Year IT Student</p>
+            <h1>Hi, I'm <span>Nicole</span><br>Manzano</h1>
+        </div> 
+    </div>
+</div>
+
+<!-----about----->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="image/user.jpg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>I'm a 20-year-old second-year IT student with a passion for exploring the dynamic world of technology. 
+                My journey into the realm of information technology began with a genuine curiosity for understanding how things work in the digital landscape. 
+                Whether it's coding, troubleshooting, or delving into the latest innovations, I find joy in unraveling the intricacies of IT. 
+                As a perpetual learner, I embrace challenges as opportunities to grow and adapt. 
+                Outside of the digital realm, you can find me enjoying a good cup of coffee, exploring new coding languages, and engaging in conversations about the ever-evolving tech industry. 
+                I believe that the intersection of creativity and technology holds the key to shaping a better, more connected future, and I'm excited to contribute my skills and ideas to this exciting field.</p>
+                
+                <div class="tab-titles">
+                <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>List of Skills</span>
+                        <br>• Creativity<br>• Data Analysis<br>• Coding<br>• Critical Thinking<br>• Problem Solving</li>
+                    </ul> 
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>Experience</span><br>None</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2016-2018</span><br>RTU Boni Campus</li>
+                        <li><span>2019-2020</span><br>MPNAG</li>
+                        <li><span>2021-2022</span><br>San Felipe Neri Parochial School</li>
+                        <li><span>2022-2023</span><br>Don Bosco Technical College</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-----services----->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-money-bill"></i>
+                <h2>Commission</h2>
+                <p>As a student, I prioritize smaller-scale projects aligned with my academic commitments, 
+                maintaining a balance between studies and professional endeavors, and ensuring high-quality results within a manageable scope.</p>
+            <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <h2>IT Support and Consulting</h2>
+                <p>Provide IT support services for individuals or small businesses. 
+                It includes troubleshooting computer issues, setting up networks, 
+                securing systems, and offering general IT advice.</p>
+            <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-computer"></i>
+                <h2>Technical Support and Troubleshooting</h2>
+                <p>Many people encounter issues with their computers, software, or other electronic devices and need assistance. 
+                I offer technical support and troubleshooting services to help individuals or small businesses with their IT problems. 
+                This includes resolving software issues, setting up hardware, configuring networks, or providing general IT advice.</p>
+            <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-----contact----->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contacts</h1>
+                <p><i class="fa-solid fa-paper-plane"></i> nicolemanzano1193@gmail.com</p>
+                <p><i class="fa-solid fa-square-phone"></i> 0905 570 4541</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/nicolechiiiii/"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://www.instagram.com/ncl_mzn/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://twitter.com/ncl_mzn"><i class="fa-brands fa-square-twitter"></i></a>
+                    <a href="https://discord.gg/bH7Z2VF5Nf"><i class="fa-brands fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+            <div class="contact-right">
+                <form id="contactForm" onsubmit="event.preventDefault(); submitForm();">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <div id="formResponse"></div>
+            </div>
+        </div>
+    </div>
+<div class="copyright">
+        <p>Copyright © Nicole</p>
+</div>
+<div class="bottom-right">
+    <a href="#top" class="no-underline">&#129045;</a>
+</div>
+
+<script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+</script>
+
+<script>
+
+    var sidemenu = document.getElementById("sidemenu")
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+
+
+
+</script>
+
+
+</body>
+</html>
