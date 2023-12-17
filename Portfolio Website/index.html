@@ -35,10 +35,10 @@
         <nav>
             <img src="image/logo.png" class="logo">
             <ul id="sidemenu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
             </ul>
             <i class="fa-solid fa-bars" onclick="openmenu()"></i>
@@ -142,6 +142,7 @@
             </div>
         </div>
             <div class="contact-right">
+                <form name="submit-to-google-sheet">
                 <form id="contactForm" onsubmit="event.preventDefault(); submitForm();">
                     <input type="text" name="Name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
@@ -149,6 +150,7 @@
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
                 <div id="formResponse"></div>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
@@ -189,6 +191,24 @@
 
 </script>
 
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzKei14BM3C5qXrnXyf3PMKLoyxXySh-a8FZXFdxldv8mPBDFL9MNmTHgxZ17k2EGNJ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message Sent Successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 
 </body>
 </html>

@@ -279,7 +279,7 @@ form .btn2{
 }
 
 /*-----css for small screens-----*/
-nav .fas{
+nav .fa-solid{
     display: none;
 }
 
@@ -294,7 +294,7 @@ nav .fas{
     .header-text h1{
         font-size: 30px;
     }
-    nav .fas{
+    nav .fa-solid{
         display: block;
         font-size: 25px;
     }    
@@ -302,7 +302,7 @@ nav .fas{
         background:#004aad;
         position: fixed;
         top: 0;
-        right: 0;
+        right: -200px;
         width: 200px;
         height: 100vh;
         padding-top: 50px;
@@ -313,7 +313,7 @@ nav .fas{
         display: block;
         margin: 25px;
     }
-    nav ul .fas{
+    nav ul .fa-xmark{
         position: absolute;
         top: 25px;
         left: 25px;
@@ -335,4 +335,15 @@ nav .fas{
         font-size: 16px;
         margin-right: 20px;
     }
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
+    .copyright{
+        font-size: 14px;
+    }
+}
+#msg{
+    color: #61b752;
+    margin-top: 5px;
+    display: block;
 }
